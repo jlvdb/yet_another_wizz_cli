@@ -1,8 +1,7 @@
 yet_another_wizz_cli
 ====================
 
-.. image:: https://badge.fury.io/py/yet-another-wizz-cli.svg
-    :target: https://badge.fury.io/py/yet-another-wizz-cli
+.. image:: https://img.shields.io/pypi/v/yet_another_wizz_cli
 .. image:: https://github.com/jlvdb/yet_another_wizz_cli/actions/workflows/run-tests.yml/badge.svg
     :target: https://github.com/jlvdb/yet_another_wizz_cli/actions/workflows/run-tests.yml
 .. image:: https://codecov.io/gh/jlvdb/yet_another_wizz_cli/branch/main/graph/badge.svg?token=PC41ME2AR8
