@@ -92,8 +92,8 @@ Change log
 ==========
 
 
-Version 1.2.1
--------------
+Version 1.2
+-----------
 
 Initial release as separate package. Previously the package was bundled with
 ``yet_another_wizz`` itself.
