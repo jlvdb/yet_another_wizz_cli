@@ -14,7 +14,7 @@ yet_another_wizz_cli
 
 
 *yet_another_wizz_cli* implements a command line interface for the clustering
-redshift code `*yet-another-wizz*<https://github.com/jlvdb/yet_another_wizz>`_:
+redshift code https://github.com/jlvdb/yet_another_wizz:
 
 - code: https://github.com/jlvdb/yet_another_wizz_cli.git
 - PyPI: https://pypi.org/project/yet_another_wizz_cli/
