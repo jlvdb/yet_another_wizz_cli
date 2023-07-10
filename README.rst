@@ -1,8 +1,8 @@
 yet_another_wizz_cli
 ====================
 
-.. image:: https://img.shields.io/pypi/v/yet_another_wizz_cli
-    :alt: PyPI
+.. image:: https://img.shields.io/pypi/v/yet_another_wizz_cli?logo=pypi&logoColor=blue&link=https%3A%2F%2Fpypi.org%2Fproject%2Fyet-another-wizz-cli%2F
+:   alt: PyPI
 .. image:: https://github.com/jlvdb/yet_another_wizz_cli/actions/workflows/run-tests.yml/badge.svg
     :target: https://github.com/jlvdb/yet_another_wizz_cli/actions/workflows/run-tests.yml
 .. image:: https://codecov.io/gh/jlvdb/yet_another_wizz_cli/branch/main/graph/badge.svg?token=PC41ME2AR8
