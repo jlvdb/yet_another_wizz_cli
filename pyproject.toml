@@ -43,8 +43,8 @@ test = [
     "pytest-cov",
 ]
 dev = [
-    "yet_another_wizz[style]",
-    "yet_another_wizz[test]",
+    "yet_another_wizz_cli[style]",
+    "yet_another_wizz_cli[test]",
     "ipykernel",
 ]
 
