@@ -74,7 +74,7 @@ def merge_config(
         MergeError("found no common scales")
     extra = set.union(*scale_sets) - common
     if len(extra) > 0:
-        logger.warn(f"ignoring unmatched scales: {', '.join(extra)}")
+        logger.warning(f"ignoring unmatched scales: {', '.join(extra)}")
 
     # merge binning
     if merge_binning:
@@ -107,7 +107,7 @@ def get_common_bins(projects: Sequence[YawDirectory]) -> set[int]:
         MergeError("found no common bins")
     extra = set.union(*bin_sets) - common
     if len(extra) > 0:
-        logger.warn(f"ignoring uncommon bins: {', '.join(str(b) for b in extra)}")
+        logger.warning(f"ignoring uncommon bins: {', '.join(str(b) for b in extra)}")
     return common
 
 
@@ -127,27 +127,27 @@ def get_merged_state(projects: Sequence[YawDirectory]) -> ProjectState:
         has_w_ss = merge_state_attr(states, "has_w_ss", require=True)
     except MergeError:
         has_w_ss = False
-        logger.warn("ignoring uncommon reference autocorrelation functions")
+        logger.warning("ignoring uncommon reference autocorrelation functions")
     try:
         has_w_pp = merge_state_attr(states, "has_w_pp", require=True)
     except MergeError:
         has_w_pp = False
-        logger.warn("ignoring uncommon unknown autocorrelation functions")
+        logger.warning("ignoring uncommon unknown autocorrelation functions")
     try:
         has_w_sp = merge_state_attr(states, "has_w_sp", require=True)
     except MergeError:
         has_w_sp = False
-        logger.warn("ignoring uncommon crosscorrelation functions")
+        logger.warning("ignoring uncommon crosscorrelation functions")
     try:
         has_nz_true = merge_state_attr(states, "has_nz_true", require=True)
     except MergeError:
         has_nz_true = False
-        logger.warn("ignoring uncommon true redshift distributions")
+        logger.warning("ignoring uncommon true redshift distributions")
     try:
         has_nz_ref = merge_state_attr(states, "has_nz_ref", require=True)
     except MergeError:
         has_nz_ref = False
-        logger.warn("ignoring uncommon reference sample redshift distributions")
+        logger.warning("ignoring uncommon reference sample redshift distributions")
     return ProjectState(
         has_w_ss=has_w_ss,
         has_w_pp=has_w_pp,

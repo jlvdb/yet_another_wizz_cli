@@ -74,7 +74,7 @@ class PostProcessor:
         msg = f"a large number of patches (>{LIM}) may degrade the performance"
         if not self._warned_patches:
             if self.project.inputs.get_n_patches() > LIM:
-                logger.warn(msg)
+                logger.warning(msg)
                 self._warned_patches = True
 
     def set_bin_idx(self, idx: int) -> None:
@@ -199,7 +199,7 @@ class PostProcessor:
             key = (scale, tag)
             est_dir = self.project.get_estimate_dir(scale, tag, create=True)
             path = est_dir.get_cross(self.get_bin_idx())
-            nz_data = RedshiftData.from_correlation_data(
+            nz_data = RedshiftData.from_corrdata(
                 cross_data[key], ref_data[key], unk_data[key], info=info
             )
             nz_data.to_files(path)
@@ -242,7 +242,7 @@ class PostProcessor:
             method=plotter.nz, title="Redshift estimate", name="nz_estimate.png"
         )
         if not plotted:
-            logger.warn("there was no data to plot")
+            logger.warning("there was no data to plot")
 
 
 class DataProcessor(PostProcessor):
@@ -315,7 +315,7 @@ class DataProcessor(PostProcessor):
                 raise MissingCatalogError("no catalogs loaded")
             self._linkage = PatchLinkage.from_setup(self.config, cat)
             if self._linkage.density > 0.3 and not self._warned_linkage:
-                logger.warn(
+                logger.warning(
                     "linkage density > 0.3, either patches overlap "
                     "significantly or are small compared to scales"
                 )

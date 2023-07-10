@@ -104,6 +104,10 @@ class Task(DictRepresentation):
         return {k: v for k, v in asdict(self).items() if v != defaults[k]}
 
     @classmethod
+    def get_n_par(cls) -> int:
+        return len(fields(cls))
+
+    @classmethod
     def get_parnames(cls) -> list[str]:
         return [par.name for par in fields(cls)]
 
@@ -599,7 +603,7 @@ class TaskManager(Sequence):
                     engine.write_nz_true()
 
         if do_zcc and not zcc_processed:
-            logger.warn("task 'zcc': there were no pair counts to process")
+            logger.warning("task 'zcc': there were no pair counts to process")
 
         if drop_cache:
             engine.drop_cache()

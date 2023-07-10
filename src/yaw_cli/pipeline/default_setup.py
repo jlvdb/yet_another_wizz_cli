@@ -168,7 +168,7 @@ level += 1
 setup_default += format_line(
     "filepath:",
     "either a single file path (no tomographic bins) or a mapping of integer bin index to file path (as shown below)",
-    indents=2,
+    indents=level,
 )
 setup_default += format_line("1: ...", "bin 1", indents=level + 1)
 setup_default += format_line("2: ...", "bin 2", indents=level + 1)
@@ -208,6 +208,9 @@ setup_default += wrap_comment(
 )
 setup_default += "tasks:\n"
 for task in tasks.Task.all_tasks():
-    setup_default += format_line(task.get_name(), task.get_help(), indents=DASH)
+    name = task.get_name()
+    if task.get_n_par() > 0:
+        name += ":"
+    setup_default += format_line(name, task.get_help(), indents=DASH)
     setup_default += make_doc(task, indent=2, indicate_opt=False)
 setup_default = setup_default.strip("\n")
