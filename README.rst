@@ -33,7 +33,7 @@ of *yet_another_wizz* itself, including some usage examples:
 Installation
 ------------
 
-The *yet_another_wizz* package can be installed directly with pip:
+The *yet_another_wizz* package can be installed directly with pip::
 
     pip install yet_another_wizz_cli
 
@@ -46,7 +46,8 @@ Usage
 
 After installation, the command line tool can be invoked by typing ``yaw_cli```
 on the terminal. The tool is organised into a number subcommands that each
-serve a specific purpose. To obtain an overview over the available options, type
+serve a specific purpose. To obtain an overview over the available options,
+type::
 
     $ yaw_cli --help
 
@@ -56,7 +57,7 @@ a summary of the operations performed in a single YAML configuration file.
 
 The most important subcommand is ``yaw_cli run``, which computes clustering
 redshifts from such a YAML configuration file. A template for the configuration
-file can be printed to the terminal using:
+file can be printed to the terminal using::
 
     $ yaw_cli run --dump
 
