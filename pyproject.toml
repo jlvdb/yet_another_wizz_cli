@@ -23,7 +23,7 @@ dependencies = [
     "pandas",
     "pyyaml",
     "matplotlib",
-    "yet_another_wizz>=2.5.1",
+    "yet-another-wizz>=2.5.1",
 ]
 
 [project.scripts]
