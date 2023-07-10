@@ -37,8 +37,14 @@ style = [
     "flake8",
     "pre-commit",
 ]
+test = [
+    "coverage",
+    "pytest",
+    "pytest-cov",
+]
 dev = [
     "yet_another_wizz[style]",
+    "yet_another_wizz[test]",
     "ipykernel",
 ]
 
