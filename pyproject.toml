@@ -55,9 +55,13 @@ version = {attr = "yaw_cli.__version__"}
 where = ["src"]
 
 [tool.pytest.ini_options]
-minversion = "6.0"
-addopts = "-ra -q"
-testpaths = ["tests"]
+testpaths = [
+    "tests",
+]
+addopts = [
+    "--cov=yaw_cli",
+    "--cov-report=xml",
+]
 
 [tool.isort]
 profile = "black"
