@@ -5,7 +5,7 @@ Change log
 Version 1.2.2
 -------------
 
-Added simple unit tests that run a randommised setup.
+Added simple unit tests that run a randomised setup.
 
 .. rubric:: Bug fixes
 
