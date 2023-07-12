@@ -244,7 +244,7 @@ class _Commandline:
         try:
             if args.task:
                 if args.task == "run":
-                    message = f"running setup from from:{Colors.rst} {args.setup}"
+                    message = f"running setup from file:{Colors.rst} {args.setup}"
                 else:
                     message = f"running task {args.task.upper()}"
                 print(f"{Colors.grn}YAW {Colors.sep} {message}{Colors.rst}")
