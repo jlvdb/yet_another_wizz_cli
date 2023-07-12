@@ -1,6 +1,7 @@
-yet_another_wizz_cli
-====================
-
+.. image:: https://github.com/jlvdb/yet_another_wizz/blob/main/docs/source/_static/logo-dark.png?raw=true
+    :width: 1000
+    :alt: yet_another_wizz
+|
 .. image:: https://img.shields.io/pypi/v/yet_another_wizz_cli?logo=pypi&logoColor=blue
     :target: https://pypi.org/project/yet_another_wizz_cli/
 .. image:: https://github.com/jlvdb/yet_another_wizz_cli/actions/workflows/run-tests.yml/badge.svg
@@ -12,6 +13,9 @@ yet_another_wizz_cli
 .. image:: https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336
     :target: https://pycqa.github.io/isort/
 
+
+Commandline tool
+================
 
 *yet_another_wizz_cli* implements a command line interface for the clustering
 redshift code `yet_another_wizz <https://github.com/jlvdb/yet_another_wizz>`_:
@@ -63,6 +67,18 @@ file can be printed to the terminal using::
 
 For more details refer to the to *User guide / Command line tools* section in
 the documentation of *yet_another_wizz*.
+
+Example
+~~~~~~~
+
+.. image:: https://github.com/jlvdb/asciinema_editor/blob/main/examples/yaw_cli_small.gif?raw=true
+    :width: 800
+    :alt: yet_another_wizz_cli example run
+
+The automatically generated check plots of the clustering redshift estimates:
+.. image:: data/nz_estimate.png
+    :width: 800
+    :alt: yet_another_wizz_cli example output
 
 
 Reporting bugs and requesting features
