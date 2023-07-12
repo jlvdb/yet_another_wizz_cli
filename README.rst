@@ -71,11 +71,15 @@ the documentation of *yet_another_wizz*.
 Example
 ~~~~~~~
 
+An example run of ``yaw_cli run``, showing the extended logging information
+that are recorded throughout the run:
+
 .. image:: https://github.com/jlvdb/asciinema_editor/blob/main/examples/yaw_cli_small.gif?raw=true
     :width: 800
     :alt: yet_another_wizz_cli example run
 
 The automatically generated check plots of the clustering redshift estimates:
+
 .. image:: data/nz_estimate.png
     :width: 800
     :alt: yet_another_wizz_cli example output
