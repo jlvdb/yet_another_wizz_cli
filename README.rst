@@ -28,6 +28,9 @@ of *yet_another_wizz* itself, including some usage examples:
 
 - docs: https://yet-another-wizz.readthedocs.io/
 
+Refer especially to the sections `User guide / Usage examples` and
+`User guide / Command line tools`.
+
 .. Note::
     When using this code in published work, please cite
     *van den Busch et al. (2020), A&A 642, A200*
