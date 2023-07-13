@@ -2,6 +2,12 @@ Change log
 ==========
 
 
+Version 1.2.3
+-------------
+
+Capture all emitted warnings and redirect them to the logger.
+
+
 Version 1.2.2
 -------------
 

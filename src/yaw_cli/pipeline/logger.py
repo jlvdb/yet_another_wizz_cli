@@ -3,6 +3,7 @@ from __future__ import annotations
 import logging
 import os
 import sys
+import warnings
 
 
 def term_supports_color() -> bool:
@@ -65,8 +66,18 @@ def print_yaw_message(msg: str, color: str = Colors.blu) -> None:
     print(f"{color}YAW {Colors.sep} {msg}{Colors.rst}")
 
 
+class LoggerWrapper(object):
+    def __init__(self, name: str) -> None:
+        self.logger = logging.getLogger(name)
+
+    def write(self, message: str, *arg, **kwargs) -> None:
+        self.logger.warning(message)
+
+
 def get_logger() -> logging.Logger:
-    return logging.getLogger("yaw")
+    logger = LoggerWrapper("yaw")
+    warnings.showwarning = logger.write
+    return logger.logger
 
 
 def init_logger(level: str = "info", plain: bool = True) -> logging.Logger:
