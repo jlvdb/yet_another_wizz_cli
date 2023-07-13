@@ -37,8 +37,8 @@ def test_dump_config():
     subprocess.check_call(["yaw_cli", "run", "--dump"])
 
 
-def test_run_setup(temp_dir):
-    run_path = temp_dir / "run"
+def test_run_setup(tmp_path):
+    run_path = tmp_path / "run"
 
     # create the random generators
     gen = UniformRandoms(-5, 5, -5, 5, seed=12345)
@@ -48,18 +48,18 @@ def test_run_setup(temp_dir):
     z = gen_np.uniform(0.01, 1.0, size=20_000)
     # generate the catalog data and store them
     for i in (1, 2):
-        path = str(temp_dir / f"data{i}.pqt")
+        path = str(tmp_path / f"data{i}.pqt")
         gen.generate(10_000, draw_from=dict(z=z)).to_parquet(path)
-        path = str(temp_dir / f"rand{i}.pqt")
+        path = str(tmp_path / f"rand{i}.pqt")
         gen.generate(10_000, draw_from=dict(z=z)).to_parquet(path)
 
     # build and run setup
-    args = Args(str(run_path), str(temp_dir / "config.yaml"))
-    write_conffile(args.setup, temp_dir)
+    args = Args(str(run_path), str(tmp_path / "config.yaml"))
+    write_conffile(args.setup, tmp_path)
     commandline.subcommands.CommandRun.run(args)
 
     # check the results and compare to previously recorded values
-    check_path = temp_dir / "nz_cc_1.dat"
+    check_path = tmp_path / "nz_cc_1.dat"
     write_expected_result(str(check_path))
     result_path = run_path / "estimate" / "kpc100t1000" / "tag" / "nz_cc_1.dat"
     assert filecmp.cmp(str(result_path), str(check_path))
