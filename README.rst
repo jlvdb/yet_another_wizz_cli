@@ -28,8 +28,8 @@ of *yet_another_wizz* itself, including some usage examples:
 
 - docs: https://yet-another-wizz.readthedocs.io/
 
-Refer especially to the sections `User guide / Usage examples` and
-`User guide / Command line tools`.
+Refer especially to the sections **User guide / Usage examples** and
+**User guide / Command line tools**.
 
 .. Note::
     When using this code in published work, please cite
@@ -74,8 +74,8 @@ the documentation of *yet_another_wizz*.
 Example
 ~~~~~~~
 
-An example run of ``yaw_cli run``, showing the extended logging information
-that are recorded throughout the run:
+An example of the extended logging messages generated when running
+``yaw_cli run``:
 
 .. image:: https://github.com/jlvdb/asciinema_editor/blob/main/examples/yaw_cli_small.gif?raw=true
     :width: 800
