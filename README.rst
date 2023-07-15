@@ -1,7 +1,9 @@
 .. image:: https://github.com/jlvdb/yet_another_wizz/blob/main/docs/source/_static/logo-dark.png?raw=true
     :width: 1000
     :alt: yet_another_wizz
+
 |
+
 .. image:: https://img.shields.io/pypi/v/yet_another_wizz_cli?logo=pypi&logoColor=blue
     :target: https://pypi.org/project/yet_another_wizz_cli/
 .. image:: https://github.com/jlvdb/yet_another_wizz_cli/actions/workflows/run-tests.yml/badge.svg
