@@ -77,13 +77,13 @@ Example
 An example of the extended logging messages generated when running
 ``yaw_cli run``:
 
-.. image:: https://github.com/jlvdb/asciinema_editor/blob/main/examples/yaw_cli_small.gif?raw=true
+.. image:: https://raw.githubusercontent.com/jlvdb/asciinema_editor/examples/yaw_cli_small.gif
     :width: 800
     :alt: yet_another_wizz_cli example run
 
 The automatically generated check plots of the clustering redshift estimates:
 
-.. image:: data/nz_estimate.png
+.. image:: https://raw.githubusercontent.com/jlvdb/yet_another_wizz_cli/data/nz_estimate.png
     :width: 800
     :alt: yet_another_wizz_cli example output
 
