@@ -5,7 +5,9 @@ Change log
 Version 1.2.3
 -------------
 
-Capture all emitted warnings and redirect them to the logger.
+- Capture all emitted warnings and redirect them to the logger.
+- Added very simple test that runs the pipeline of randomyl generated data
+  points.
 
 
 Version 1.2.2
