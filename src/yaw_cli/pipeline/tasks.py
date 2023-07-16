@@ -77,11 +77,15 @@ class Task(DictRepresentation):
                 name = f"{self.__class__.__name__}.{par.name}"
                 raise TaskError(f"no default value for '{name}' provided")
 
-    def __eq__(self, other: Task) -> bool:
-        return Task._order[self.get_name()] == Task._order[other.get_name()]
+    def __eq__(self, other: object) -> bool:
+        if isinstance(other, Task):
+            return Task._order[self.get_name()] == Task._order[other.get_name()]
+        return NotImplemented
 
     def __le__(self, other: Task) -> bool:
-        return Task._order[self.get_name()] < Task._order[other.get_name()]
+        if isinstance(other, Task):
+            return Task._order[self.get_name()] < Task._order[other.get_name()]
+        return NotImplemented
 
     @classmethod
     def from_argparse(cls, args: Namespace) -> Task:
@@ -133,11 +137,15 @@ class RepeatableTask(Task):
     def get_identifier(self) -> Any:
         pass
 
-    def __eq__(self, other: Task) -> bool:
-        if super().__eq__(other) and hasattr(other, "get_identifier"):
-            # additionally compare on the argument level
-            return self.get_identifier() == other.get_identifier()
-        return False
+    def __eq__(self, other: object) -> bool:
+        if isinstance(other, self.__class__):
+            return (
+                Task._order[self.get_name()] == Task._order[other.get_name()]
+                and self.get_identifier() == other.get_identifier()
+            )
+        elif isinstance(other, Task):
+            return False
+        return NotImplemented
 
 
 def get_task(name: str) -> Task:
