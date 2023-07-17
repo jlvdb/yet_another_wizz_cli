@@ -3,7 +3,7 @@ from __future__ import annotations
 import bisect
 import functools
 import logging
-from abc import abstractclassmethod, abstractmethod
+from abc import abstractmethod
 from collections import deque
 from collections.abc import Iterator, Sequence
 from dataclasses import MISSING, asdict, dataclass, field, fields
@@ -119,11 +119,13 @@ class Task(DictRepresentation):
     def get_defaults(cls) -> dict[str, Any]:
         return {par.name: par.default for par in fields(cls)}
 
-    @abstractclassmethod
+    @classmethod
+    @abstractmethod
     def get_name(cls) -> str:
         return "task"
 
-    @abstractclassmethod
+    @classmethod
+    @abstractmethod
     def get_help(cls) -> str:
         return "task"
 

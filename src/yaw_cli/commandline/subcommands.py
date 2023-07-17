@@ -3,7 +3,7 @@ from __future__ import annotations
 import argparse
 import logging
 import sys
-from abc import ABC, abstractclassmethod
+from abc import ABC, abstractmethod
 
 from yaw import config as yaw_config
 from yaw.config import DEFAULT, OPTIONS, Configuration
@@ -27,15 +27,18 @@ class SubCommand(ABC):
         super().__init_subclass__(**kwargs)
         Commandline.register_subcommand(cls)
 
-    @abstractclassmethod
+    @classmethod
+    @abstractmethod
     def get_name(cls) -> str:
         return "command"
 
-    @abstractclassmethod
+    @classmethod
+    @abstractmethod
     def add_parser(cls) -> None:
         Commandline.register_subcommand(cls)
 
-    @abstractclassmethod
+    @classmethod
+    @abstractmethod
     def run(cls, args: argparse.Namespace) -> None:
         pass
 

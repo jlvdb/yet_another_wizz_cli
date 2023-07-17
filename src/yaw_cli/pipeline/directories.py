@@ -4,7 +4,7 @@ import logging
 import os
 import shutil
 import textwrap
-from abc import ABC, abstractmethod, abstractproperty
+from abc import ABC, abstractmethod
 from collections.abc import Iterator
 from pathlib import Path, _posix_flavour, _windows_flavour
 from typing import Any
@@ -83,15 +83,18 @@ class CacheDirectory(Directory):
 
 
 class DataDirectory(Directory, ABC):
-    @abstractproperty
+    @property
+    @abstractmethod
     def _auto_reference_prefix(self) -> str:
         pass
 
-    @abstractproperty
+    @property
+    @abstractmethod
     def _cross_prefix(self) -> str:
         pass
 
-    @abstractproperty
+    @property
+    @abstractmethod
     def _auto_prefix(self) -> str:
         pass
 

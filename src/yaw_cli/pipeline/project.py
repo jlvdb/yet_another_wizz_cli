@@ -3,7 +3,7 @@ from __future__ import annotations
 import logging
 import os
 import shutil
-from abc import abstractmethod, abstractproperty
+from abc import abstractmethod
 from collections.abc import Iterator
 from dataclasses import dataclass
 from itertools import zip_longest
@@ -181,7 +181,8 @@ class YawDirectory(DictRepresentation):
         if exc_type is None:
             self.setup_write()
 
-    @abstractproperty
+    @property
+    @abstractmethod
     def setup_file(self) -> Path:
         pass
 
@@ -343,7 +344,8 @@ class YawDirectory(DictRepresentation):
     def get_bin_indices(self) -> set[int]:
         pass
 
-    @abstractproperty
+    @property
+    @abstractmethod
     def n_bins(self) -> int:
         pass
 
