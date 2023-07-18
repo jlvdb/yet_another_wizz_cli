@@ -369,7 +369,7 @@ class InputManager(DictRepresentation):
             )
 
     def set_reference(self, data: Input, rand: Input | None = None) -> None:
-        logger.debug(f"registering reference data catalog '{data.filepath}'")
+        logger.debug("registering reference data catalog '%s'", data.filepath)
         self._check_patch_definition(data)
         self._reference["data"] = data
         if rand is not None:
@@ -378,7 +378,7 @@ class InputManager(DictRepresentation):
 
     def add_unknown(self, bin_idx: int, data: Input, rand: Input | None = None) -> None:
         logger.debug(
-            f"registering unknown bin {bin_idx} data catalog '{data.filepath}'"
+            "registering unknown bin %i data catalog '%s'", bin_idx, data.filepath
         )
         # make sure the bin indices will remain aligned
         if self._unknown["rand"] is not None and rand is None:
@@ -488,14 +488,17 @@ class InputManager(DictRepresentation):
         return catalog
 
     def load_reference(self, kind: str, progress: bool = False) -> BaseCatalog:
-        logger.info(f"loading reference {'random' if kind == 'rand' else kind} catalog")
+        logger.info(
+            "loading reference %s catalog", "random" if kind == "rand" else kind
+        )
         return self._load_catalog("reference", kind, progress=progress)
 
     def load_unknown(
         self, kind: str, bin_idx: int, progress: bool = False
     ) -> BaseCatalog:
         logger.info(
-            f"loading unknown bin {bin_idx} "
-            f"{'random' if kind == 'rand' else kind} catalog"
+            "loading unknown bin %i %s catalog",
+            bin_idx,
+            "random" if kind == "rand" else kind,
         )
         return self._load_catalog("unknown", kind, bin_idx, progress=progress)

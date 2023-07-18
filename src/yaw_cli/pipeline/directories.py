@@ -69,7 +69,7 @@ class CacheDirectory(Directory):
         )
 
     def drop(self, name: str) -> None:
-        logger.debug(f"dropping cache '{name}'")
+        logger.debug("dropping cache '%s'", name)
         path = self.joinpath(name)
         if path.is_dir():
             shutil.rmtree(str(path))

@@ -74,7 +74,7 @@ def merge_config(
         MergeError("found no common scales")
     extra = set.union(*scale_sets) - common
     if len(extra) > 0:
-        logger.warning(f"ignoring unmatched scales: {', '.join(extra)}")
+        logger.warning("ignoring unmatched scales: %s", ", ".join(extra))
 
     # merge binning
     if merge_binning:
@@ -107,7 +107,7 @@ def get_common_bins(projects: Sequence[YawDirectory]) -> set[int]:
         MergeError("found no common bins")
     extra = set.union(*bin_sets) - common
     if len(extra) > 0:
-        logger.warning(f"ignoring uncommon bins: {', '.join(str(b) for b in extra)}")
+        logger.warning("ignoring uncommon bins: %s", ", ".join(str(b) for b in extra))
     return common
 
 
@@ -224,7 +224,7 @@ class MergedDirectory(YawDirectory):
     def from_projects(
         cls, path: TypePathStr, inputs: Sequence[TypePathStr], mode: str
     ) -> MergedDirectory:
-        logger.info(f"merging {len(inputs)} project directories")
+        logger.info("merging %i project directories", len(inputs))
         projects: list[YawDirectory] = []
         for project in inputs:
             projects.append(open_yaw_directory(project))
@@ -249,10 +249,13 @@ class MergedDirectory(YawDirectory):
 
         # merge and write the pair counts files
         for scale, counts_dir in merged.iter_counts(create=True):
-            logmsg = f"merging {{:}} for scale '{scale}'"
             project_counts_dir = [project.get_counts_dir(scale) for project in projects]
             if merged_state.has_w_ss:
-                logger.info(logmsg.format("reference autocorrelation function"))
+                logger.info(
+                    "merging %s for scale '%s'",
+                    "reference autocorrelation function",
+                    scale,
+                )
                 cf = merge_cfs(
                     mode,
                     [
@@ -262,7 +265,11 @@ class MergedDirectory(YawDirectory):
                 )
                 cf.to_file(counts_dir.get_auto_reference())
             if merged_state.has_w_sp:
-                logger.info(logmsg.format("unknown autocorrelation functions"))
+                logger.info(
+                    "merging %s for scale '%s'",
+                    "unknown autocorrelation functions",
+                    scale,
+                )
                 for bin_idx in bins:
                     cf = merge_cfs(
                         mode,
@@ -273,7 +280,9 @@ class MergedDirectory(YawDirectory):
                     )
                     cf.to_file(counts_dir.get_cross(bin_idx))
             if merged_state.has_w_pp:
-                logger.info(logmsg.format("crosscorrelation functions"))
+                logger.info(
+                    "merging %s for scale '%s'", "crosscorrelation functions", scale
+                )
                 for bin_idx in bins:
                     cf = merge_cfs(
                         mode,

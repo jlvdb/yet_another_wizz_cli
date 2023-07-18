@@ -71,10 +71,11 @@ class PostProcessor:
 
     def _warn_patches(self):
         LIM = 512
-        msg = f"a large number of patches (>{LIM}) may degrade the performance"
         if not self._warned_patches:
             if self.project.inputs.get_n_patches() > LIM:
-                logger.warning(msg)
+                logger.warning(
+                    "a large number of patches (>%i) may degrade the performance", LIM
+                )
                 self._warned_patches = True
 
     def set_bin_idx(self, idx: int) -> None:
@@ -136,7 +137,7 @@ class PostProcessor:
         if data is None:
             data = {}
         for scale, cf in cfs.items():
-            logger.debug(f"processing pair counts for {tag=} / {scale=}")
+            logger.debug("processing pair counts for tag=%s / scale=%s", tag, scale)
             data[(scale, tag)] = cf.sample(config, estimator=estimator, info=cfs_kind)
         setattr(self, f"_{cfs_kind}_data", data)
         return data
@@ -211,7 +212,7 @@ class PostProcessor:
 
             from yaw_cli.pipeline.plot import Plotter
 
-            logger.info(f"creating check-plots in '{plot_dir}'")
+            logger.info("creating check-plots in '%s'", plot_dir)
         except ImportError:
             logger.error("could not import matplotlib, plotting disabled")
             return
@@ -220,7 +221,7 @@ class PostProcessor:
             fig = method(title)
             if fig is not None:
                 fig.tight_layout()
-                logger.info(f"plotting to '{name}'")
+                logger.info("plotting to '%s'", name)
                 fig.savefig(plot_dir.joinpath(name))
                 plt.close(fig)
                 return True
@@ -316,8 +317,7 @@ class DataProcessor(PostProcessor):
             self._linkage = PatchLinkage.from_setup(self.config, cat)
             if self._linkage.density > 0.3 and not self._warned_linkage:
                 logger.warning(
-                    "linkage density > 0.3, either patches overlap "
-                    "significantly or are small compared to scales"
+                    "linkage density > 0.3, either patches overlap significantly or are small compared to scales"
                 )
                 self._warned_linkage = True
 

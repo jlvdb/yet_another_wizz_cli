@@ -110,7 +110,7 @@ def load_setup_as_dict(setup_file: TypePathStr) -> dict[str, Any]:
 
 
 def load_config_from_setup(setup_file: TypePathStr) -> Configuration:
-    logger.info(f"importing configuration from '{setup_file}'")
+    logger.info("importing configuration from '%s'", setup_file)
     setup_dict = load_setup_as_dict(setup_file)
     return parse_config_from_setup(setup_dict)
 
@@ -149,9 +149,9 @@ class YawDirectory(DictRepresentation):
                 f"'{self.setup_file}' does not exist"
             )
         if not self.log_file.exists():
-            logger.info(f"setting up log file '{self.log_file}'")
+            logger.info("setting up log file '%s'", self.log_file)
         else:
-            logger.info(f"resuming project at '{self._path}'")
+            logger.info("resuming project at '%s'", self._path)
         self._add_log_file_handle()
         with open(self.setup_file) as f:
             setup = yaml.safe_load(f.read())
@@ -360,7 +360,7 @@ class ProjectDirectory(YawDirectory):
         cachepath: TypePathStr | None = None,
         backend: str = DEFAULT.backend,
     ) -> ProjectDirectory:
-        logger.info(f"creating new project at '{path}'")
+        logger.info("creating new project at '%s'", path)
         data = dict()
         if n_patches is not None:
             data["n_patches"] = n_patches
@@ -398,7 +398,7 @@ class ProjectDirectory(YawDirectory):
         if "cachepath" not in data or data["cachepath"] is None:
             data["cachepath"] = str(self.default_cache_path)
         else:
-            logger.info(f"using cache location '{data['cachepath']}'")
+            logger.info("using cache location '%s'", data["cachepath"])
         self._inputs = InputManager.from_dict(data)
         # try loading existsing patch centers
         if self.patch_file.exists():
@@ -437,14 +437,13 @@ class ProjectDirectory(YawDirectory):
 
     def set_reference(self, data: Input, rand: Input | None = None) -> None:
         if rand is not None:
-            logger.debug(f"registering reference random catalog '{rand.filepath}'")
+            logger.debug("registering reference random catalog '%s'", rand.filepath)
         self._inputs.set_reference(data, rand)
 
     def add_unknown(self, bin_idx: int, data: Input, rand: Input | None = None) -> None:
         if rand is not None:
             logger.debug(
-                f"registering unknown bin {bin_idx} random catalog "
-                f"'{rand.filepath}'"
+                "registering unknown bin %i random catalog '%s'", bin_idx, rand.filepath
             )
         self._inputs.add_unknown(bin_idx, data, rand)
 

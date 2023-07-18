@@ -448,7 +448,7 @@ class TaskManager(Sequence):
         t_args = ", ".join(f"{k}={repr(v)}" for k, v in asdict(task).items())
         if len(t_args) == 0:
             t_args = "---"
-        logger.debug(f"'{task.get_name()}' arguments: {t_args}")
+        logger.debug("'%s' arguments: %s", task.get_name(), t_args)
         self._insert_task(task, self._queue)
 
     def reschedule_history(self) -> None:
@@ -478,11 +478,11 @@ class TaskManager(Sequence):
         self, task: Task, progress: bool = False, threads: int | None = None
     ) -> None:
         # log task
-        logger.info(f"running task '{task.get_name()}'")
+        logger.info("running task '%s'", task.get_name())
         args = ", ".join(f"{k}={repr(v)}" for k, v in asdict(task).items())
         if len(args) == 0:
             args = "---"
-        logger.debug(f"arguments: {args}")
+        logger.debug("arguments: %s", args)
         # use a temporary single item queue
         queue = self._queue
         try:

@@ -481,6 +481,6 @@ class CommandRun(SubCommand):
 
         # run the tasks in the job list
         with ProjectDirectory.from_dict(setup, path=args.wdir) as project:
-            logger.info(f"scheduling tasks: {project.tasks.view_history()}")
+            logger.info("scheduling tasks: %s", project.tasks.view_history())
             project.tasks.reschedule_history()
             project.tasks.process(progress=args.progress, threads=args.threads)
