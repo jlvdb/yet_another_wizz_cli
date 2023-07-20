@@ -152,7 +152,7 @@ class _Commandline:
                 type=int,
                 metavar="<int>",
                 nargs="+",
-                help=f"integer index to identify the input files (or bins) provided with [--{prefix}-path] (default: 0, 1, ...)",
+                help=f"integer index to identify the input files (or bins) provided with [--{prefix}-path] (default: 1, 2, ...)",
             )
         group.add_argument(
             f"--{prefix}-cache",

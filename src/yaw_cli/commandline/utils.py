@@ -22,9 +22,9 @@ class DumpConfigAction(Action):
         )
 
     def __call__(self, parser, namespace, values, option_string):
-        from yaw_cli.pipeline.default_setup import setup_default
+        from yaw_cli.pipeline.default_setup import gen_default
 
-        print(setup_default)
+        print(gen_default())
         parser.exit()
 
 
