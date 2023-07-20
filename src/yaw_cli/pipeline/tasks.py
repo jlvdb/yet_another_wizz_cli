@@ -163,7 +163,7 @@ class TaskCrosscorr(Task):
         default=False,
         metadata=Parameter(
             type=bool,
-            help="compute random-random pair counts, even if both randoms are available",
+            help="compute random-random pair counts if both randoms are available",
         ),
     )
 

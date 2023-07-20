@@ -190,8 +190,7 @@ data:
 # parameters listed below (all values optional, defaults listed).
 tasks:
   - cross:                  # compute the crosscorrelation
-        rr: True                # compute random-random pair counts, even if both randoms are
-                                # available
+        rr: True                # compute random-random pair counts if both randoms are available
   - auto_ref:               # compute the reference sample autocorrelation for bias mitigation
         rr: true                # do not compute random-random pair counts
   - auto_unk:               # compute the unknown sample autocorrelation for bias mitigation
