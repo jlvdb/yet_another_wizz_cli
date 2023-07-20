@@ -2,6 +2,12 @@ Change log
 ==========
 
 
+Version 1.2.4
+-------------
+
+Fixed some parameter docstrings and help texts.
+
+
 Version 1.2.3
 -------------
 
