@@ -115,8 +115,7 @@ class CommandInit(SubCommand):
             title="redshift binning",
             description="sets the redshift binning for the clustering redshifts",
         )
-        populate_parser(yaw_config.AutoBinningConfig, group_bins)
-        populate_parser(yaw_config.ManualBinningConfig, group_bins)
+        populate_parser(yaw_config.BinningConfig, group_bins)
 
         group_backend = parser.add_argument_group(
             title="backend specific",

@@ -8,7 +8,7 @@ from typing import TYPE_CHECKING, Any
 
 import numpy as np
 import pandas as pd
-from yaw.config import OPTIONS, Configuration, ManualBinningConfig, ScalesConfig
+from yaw.config import OPTIONS, BinningConfig, Configuration, ScalesConfig
 from yaw.config import default as DEFAULT
 from yaw.core.utils import TypePathStr
 from yaw.correlation import CorrFunc
@@ -79,7 +79,7 @@ def merge_config(
     # merge binning
     if merge_binning:
         bins = np.unique(np.concatenate(bins))
-        bin_config = ManualBinningConfig(bins)
+        bin_config = BinningConfig.create(zbins=bins)
         if bin_config.zbin_num != n_bins:
             raise MergeError("cannot concatenate bins contiguously")
     else:

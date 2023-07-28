@@ -98,8 +98,7 @@ def gen_default(width=WIDTH):
         indents=1,
         width=width,
     )
-    setup_default += make_doc(config.AutoBinningConfig, indent=2, width=width)
-    setup_default += make_doc(config.ManualBinningConfig, indent=2, width=width)
+    setup_default += make_doc(config.BinningConfig, indent=2, width=width)
 
     setup_default += format_line(
         "scales:", "specify the correlation measurement scales", indents=1, width=width
