@@ -2,6 +2,12 @@ Change log
 ==========
 
 
+Version 1.2.5
+-------------
+
+Adapted code to new binning configuration class ``yaw.config.BinningConfig``.
+
+
 Version 1.2.4
 -------------
 

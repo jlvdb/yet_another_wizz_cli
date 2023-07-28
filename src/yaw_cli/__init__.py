@@ -7,4 +7,4 @@ from yaw_cli.pipeline.logger import init_logger
 from yaw_cli.pipeline.project import ProjectDirectory
 
 __all__ = ["Commandline", "ProjectDirectory", "commandline", "pipeline", "init_logger"]
-__version__ = "1.2.4"
+__version__ = "1.2.5"
