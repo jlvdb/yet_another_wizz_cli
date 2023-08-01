@@ -38,7 +38,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: jlvdb/yet_another_wizz
+          images: jlvdb/yet_another_wizz_cli
           tags: |
             type=semver,pattern={{version}}
             type=raw,value=latest
