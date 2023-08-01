@@ -11,6 +11,7 @@ name: ci
 
 on:
   push:
+    branches: [main]
   release:
     types: [published]
 
