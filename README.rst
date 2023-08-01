@@ -6,14 +6,14 @@
 
 .. image:: https://img.shields.io/pypi/v/yet_another_wizz_cli?logo=pypi&logoColor=blue
     :target: https://pypi.org/project/yet_another_wizz_cli/
+.. image:: https://github.com/jlvdb/yet_another_wizz_cli/actions/workflows/docker-publish.yml/badge.svg
+    :target: https://github.com/jlvdb/yet_another_wizz_cli/actions/workflows/docker-publish.yml
 .. image:: https://github.com/jlvdb/yet_another_wizz_cli/actions/workflows/run-tests.yml/badge.svg
     :target: https://github.com/jlvdb/yet_another_wizz_cli/actions/workflows/run-tests.yml
+.. image:: https://readthedocs.org/projects/yet-another-wizz/badge/?version=latest
+    :target: https://yet-another-wizz.readthedocs.io/en/latest/?badge=latest
 .. image:: https://codecov.io/gh/jlvdb/yet_another_wizz_cli/branch/main/graph/badge.svg?token=PC41ME2AR8
     :target: https://codecov.io/gh/jlvdb/yet_another_wizz_cli
-.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
-    :target: https://github.com/psf/black
-.. image:: https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336
-    :target: https://pycqa.github.io/isort/
 
 
 Commandline tool
@@ -24,6 +24,7 @@ redshift code `yet_another_wizz <https://github.com/jlvdb/yet_another_wizz>`_:
 
 - code: https://github.com/jlvdb/yet_another_wizz_cli.git
 - PyPI: https://pypi.org/project/yet_another_wizz_cli/
+- Docker: https://hub.docker.com/r/jlvdb/yet_another_wizz_cli/
 
 The documentation of this commandline tool is part of the official documentation
 of *yet_another_wizz* itself, including some usage examples:
