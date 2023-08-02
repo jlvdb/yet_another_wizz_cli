@@ -1,12 +1,7 @@
 import filecmp
-import random
-import shutil
 import subprocess
-from pathlib import Path
-from string import ascii_letters
 
 from numpy.random import default_rng
-from pytest import fixture
 from yaw import UniformRandoms
 
 from yaw_cli import commandline
@@ -22,15 +17,6 @@ class Args:
     def __init__(self, wdir, setup):
         self.wdir = wdir
         self.setup = setup
-
-
-@fixture
-def temp_dir():
-    rand_str = "".join(random.choice(ascii_letters) for i in range(6))
-    the_dir = Path(f"temp_{rand_str}")
-    the_dir.mkdir()
-    yield the_dir
-    shutil.rmtree(str(the_dir))
 
 
 def test_dump_config():
