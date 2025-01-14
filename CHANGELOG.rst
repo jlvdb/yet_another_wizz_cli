@@ -1,6 +1,13 @@
 Change log
 ==========
 
+Version 1.3.0
+-------------
+
+Removed support for incompatible `yet_another_wizz` version 3 and added
+deprecation warnings. Please migrate to the simplifed commandline client
+shipped with `yet_another_wizz` starting from version 3.1.
+
 
 Version 1.2.6
 -------------
