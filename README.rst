@@ -1,3 +1,15 @@
+DEPRECATED
+==========
+
+This package is deprecated and no longer maintained, since it is no longer
+compatible with `yet_another_wizz` version 3. Starting from version 3, a
+simplified commandline client is directly integrated and this external
+dependency is no longer required.
+
+|
+|
+|
+
 .. image:: https://raw.githubusercontent.com/jlvdb/yet_another_wizz/main/docs/source/_static/logo-dark.png
     :width: 1000
     :alt: yet_another_wizz
